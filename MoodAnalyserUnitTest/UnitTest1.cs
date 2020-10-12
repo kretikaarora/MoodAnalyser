@@ -74,6 +74,15 @@ namespace MoodAnalyserUnitTest
             }
 
         }
+        [TestMethod]
+        public void GivenMoodAnalyserClassName_ShouldReturn_MoodAnalyserInstance()
+        {
+            string message = null;
+            object expected = new MoodAnalyser(message);
+            object obj = MoodAnalyserFactory.CreateMoodAnalyse("EmotionAnalyser.MoodAnalyser", "MoodAnalyser");
+            expected.Equals(obj);
+        }
+
     }
 
 }

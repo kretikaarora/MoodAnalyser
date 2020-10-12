@@ -15,6 +15,10 @@ namespace EmotionAnalyser
         {
             this.message = message;
         }
+        public MoodAnalyser()
+        {
+            
+        }
         public string AnalyseMood()
         {
             try {
