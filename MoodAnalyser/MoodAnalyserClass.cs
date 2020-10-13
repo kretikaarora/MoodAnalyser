@@ -9,11 +9,20 @@ namespace EmotionAnalyser
     {
         private string message;
         /// <summary>
-        /// this is a parametarised constructor <see cref="MoodAnalyserClass"/> MoodAnalyserclass.
+        /// this is a parametarised constructor <see cref="MoodAnalyser"/> class.
         /// </summary>     
        public MoodAnalyser(string message)
         {
             this.message = message;
+            Console.WriteLine("parameterised constructor");
+            Console.WriteLine(message);
+        }
+        /// <summary>
+        /// This is non parametarised constructor of  <see cref="MoodAnalyser"/> class.
+        /// </summary>
+        public MoodAnalyser()
+        {
+            Console.WriteLine("default constructor");
         }
         public string AnalyseMood()
         {
