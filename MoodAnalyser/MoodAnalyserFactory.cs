@@ -99,5 +99,27 @@ namespace EmotionAnalyser
 
             }
         }
+        public static string SetField(string message , string fieldName)
+        {
+            try
+            {
+                MoodAnalyser moodAnalyser = new MoodAnalyser();
+                Type type = typeof(MoodAnalyser);
+                FieldInfo field = type.GetField(fieldName, BindingFlags.Public | BindingFlags.Instance);
+                if (message == null)
+                {
+                    throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_FIELD, "message should be null");
+                }
+                field.SetValue(moodAnalyser, message);
+                return moodAnalyser.message;
+
+            }
+            catch(NullReferenceException)
+            {
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_FIELD, "no field found");
+            }
+            
+        }
+
     }
 }
