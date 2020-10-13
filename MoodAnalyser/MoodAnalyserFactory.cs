@@ -9,6 +9,10 @@ namespace EmotionAnalyser
 {
     public class MoodAnalyserFactory
     {
+        /// <summary>
+        /// Creating an object for mood analyser class using non parameterised constructor
+        /// </summary>
+
         public static object CreateMoodAnalyse(string ClassName, String ConstructorName)
         {
             string pattern = @"." + ConstructorName + "$";
@@ -29,7 +33,8 @@ namespace EmotionAnalyser
 
             }
             else
-                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CONSTRUCTOR,"no such constructor found");
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CONSTRUCTOR, "no such constructor found");
         }
+      
     }
 }

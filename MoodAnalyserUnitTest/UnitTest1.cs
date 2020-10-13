@@ -82,7 +82,9 @@ namespace MoodAnalyserUnitTest
             object obj = MoodAnalyserFactory.CreateMoodAnalyse("EmotionAnalyser.MoodAnalyser", "MoodAnalyser");
             expected.Equals(obj);
         }
-
+       
+        
+        
     }
 
 }
