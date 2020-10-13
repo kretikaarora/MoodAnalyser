@@ -7,7 +7,7 @@ namespace EmotionAnalyser
 {
     public class MoodAnalyser
     {
-        private string message;
+        public string message;
         /// <summary>
         /// this is a parametarised constructor <see cref="MoodAnalyser"/> class.
         /// </summary>     

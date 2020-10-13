@@ -96,6 +96,14 @@ namespace MoodAnalyserUnitTest
             string actual = MoodAnalyserFactory.InvokeAnalyserMethod("Happy", "AnalyseMood");
             expected.Equals(actual);
         }
+        [TestMethod]
+        public  void GivenHappyMessage_viaReflector_ShoulGiveHappyMessage()
+        {
+            string expected = "Happy";
+            string actual = MoodAnalyserFactory.SetField("Happy", "message");
+            expected.Equals(actual);
+
+        }
 
 
     }
