@@ -35,7 +35,7 @@ namespace EmotionAnalyser
             else
                 throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CONSTRUCTOR, "no such constructor found");
         }
-        /// <summary>
+      /// <summary>
         /// Creates the object mood analyser class using parameterized constructor.
         /// </summary>
 
@@ -82,6 +82,22 @@ namespace EmotionAnalyser
         //        throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "no such class is found");
 
         //}
-       
+        public static string InvokeAnalyserMethod(string message, string methodName)
+        {
+            try
+            {
+                Type type = Type.GetType("EmotionAnalyser.MoodAnalyser");
+                MethodInfo methodInfo = type.GetMethod(methodName);
+                object moodAnalyserObject = CreateMoodAnalyserParameterizedObject("EmotionAnalyser.MoodAnalyser", "MoodAnalyser", "Happy");
+                object info = methodInfo.Invoke(moodAnalyserObject, null);
+                return info.ToString();
+            }
+
+            catch (NullReferenceException)
+            {
+                throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_METHOD, "no such method is found");
+
+            }
+        }
     }
 }
