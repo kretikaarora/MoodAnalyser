@@ -5,19 +5,32 @@ namespace MoodAnalyserUnitTest
 {
     [TestClass]
     public class UnitTest1
-    {
+    {    
         [TestMethod]
-        public void GivenSadMoodShouldReturnSad()
+        [DataRow("I am in a sad mood")]
+        public void GivenSadMoodShouldReturnSad(string message)
         {
             //arrange
             string expected = "SAD";
-            string message = "I am in a sad Mood";
             MoodAnalyser moodAnalyser = new MoodAnalyser(message);
             //Act
             string mood = moodAnalyser.AnalyseMood();
             //assert
             Assert.AreEqual(expected, mood);
 
+        }
+        [TestMethod]
+        //[DataRow("I am in sad mood")]
+        [DataRow(null)]
+        public void GivenNullShouldReturnHappy(string message)
+        {
+            //arrange
+            string expected = "HAPPY";
+            MoodAnalyser moodAnalyser = new MoodAnalyser(message);
+            //Act
+            string mood = moodAnalyser.AnalyseMood();
+            //assert
+            Assert.AreEqual(expected, mood);
         }
     }
 }
