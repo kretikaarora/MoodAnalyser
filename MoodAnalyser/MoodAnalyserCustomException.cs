@@ -6,6 +6,9 @@ namespace EmotionAnalyser
 {
     public class MoodAnalyserCustomException :Exception
     {
+        /// <summary>
+        /// Creating enum for Custom Exceptions
+        /// </summary>
         public enum ExceptionType
         {
             NULL_MESSAGE,EMPTY_MESSAGE,NO_SUCH_FIELD,NO_SUCH_METHOD,
