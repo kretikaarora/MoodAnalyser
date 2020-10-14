@@ -1,8 +1,5 @@
-﻿using EmotionAnalyser;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 
 namespace EmotionAnalyser
@@ -60,7 +57,8 @@ namespace EmotionAnalyser
             }
         }
 
-        ///THIS METHOD CAN ALSO BE USED FOR PARAMETRISED CONSTRUCTOR(ALTERNATIVE WAY)
+
+        /// THIS METHOD CAN ALSO BE USED FOR PARAMETRISED CONSTRUCTOR(ALTERNATIVE WAY)
 
         //public static object CreateMoodAnalyserParameterizedObject(string className, string constructor, string message)
         //{
@@ -81,7 +79,14 @@ namespace EmotionAnalyser
         //    else
         //        throw new MoodAnalyserCustomException(MoodAnalyserCustomException.ExceptionType.NO_SUCH_CLASS, "no such class is found");
 
-        //}
+        //}             
+        /// <summary>
+        /// Invoking Analyser Mood Method
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="methodName">Name of the method.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">no such method is found</exception>
         public static string InvokeAnalyserMethod(string message, string methodName)
         {
             try
@@ -99,6 +104,17 @@ namespace EmotionAnalyser
 
             }
         }
+        /// <summary>
+        /// Dynamically setting field variable using Reflection
+        /// </summary>
+        /// <param name="message">The message.</param>
+        /// <param name="fieldName">Name of the field.</param>
+        /// <returns></returns>
+        /// <exception cref="MoodAnalyserCustomException">
+        /// message should be null
+        /// or
+        /// no field found
+        /// </exception>
         public static string SetField(string message , string fieldName)
         {
             try
